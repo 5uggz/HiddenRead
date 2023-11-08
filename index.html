@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Any Book</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="iframe1" src="www.unblockedgames23.site"></iframe>
+    <iframe id="iframe2" src="https://www.readanybook.online/"></iframe>
+
+    <script>
+        let altPressed = false;
+        const iframe1 = document.getElementById("iframe1");
+        const iframe2 = document.getElementById("iframe2");
+
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Alt") {
+                altPressed = true;
+                toggleIframes();
+            }
+        });
+
+        window.addEventListener("keyup", (e) => {
+            if (e.key === "Alt") {
+                altPressed = false;
+                toggleIframes();
+            }
+        });
+
+        function toggleIframes() {
+            if (altPressed) {
+                iframe1.style.display = "none";
+                iframe2.style.display = "block";
+            } else {
+                iframe1.style.display = "block";
+                iframe2.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
