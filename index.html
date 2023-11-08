@@ -19,45 +19,45 @@
             width: 100%;
             height: 100%;
             border: none;
+            display: none;
+        }
+        #toggleButton {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px; /* Adjust the height as needed */
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            line-height: 20px; /* Match the button height */
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <iframe id="iframeFreezeNova" src="https://www.freezenova.com/"></iframe>
     <iframe id="iframeDeltaMath" src="about:blank"></iframe>
-    
+    <div id="toggleButton">Toggle</div>
+
     <script>
-        let altPressed = false;
         let currentIframeId = "iframeFreezeNova";
 
-        window.addEventListener("keydown", (e) => {
-            if (e.key === "Alt") {
-                altPressed = true;
-                toggleIframes();
-            }
-        });
-
-        window.addEventListener("keyup", (e) => {
-            if (e.key === "Alt") {
-                altPressed = false;
-                toggleIframes();
-            }
+        const toggleButton = document.getElementById("toggleButton");
+        toggleButton.addEventListener("click", () => {
+            toggleIframes();
         });
 
         function toggleIframes() {
             const freezeNovaIframe = document.getElementById("iframeFreezeNova");
             const deltaMathIframe = document.getElementById("iframeDeltaMath");
 
-            if (altPressed) {
-                currentIframeId = "iframeDeltaMath";
-            } else {
+            if (currentIframeId === "iframeDeltaMath") {
                 currentIframeId = "iframeFreezeNova";
-            }
-
-            if (currentIframeId === "iframeFreezeNova") {
                 freezeNovaIframe.style.display = "block";
                 deltaMathIframe.style.display = "none";
             } else {
+                currentIframeId = "iframeDeltaMath";
                 freezeNovaIframe.style.display = "none";
                 deltaMathIframe.style.display = "block";
             }
