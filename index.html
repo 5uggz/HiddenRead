@@ -25,32 +25,22 @@
     <iframe id="iframe2" src="https://unblocked-games.s3.amazonaws.com/index.html"></iframe>
 
     <script>
-        let altPressed = false;
         const iframe1 = document.getElementById("iframe1");
         const iframe2 = document.getElementById("iframe2");
 
-        window.addEventListener("keydown", (e) => {
-            if (e.key === "Alt") {
-                altPressed = true;
-                toggleIframes();
-            }
-        });
-
-        window.addEventListener("keyup", (e) => {
-            if (e.key === "Alt") {
-                altPressed = false;
-                toggleIframes();
-            }
-        });
+        iframe1.onload = function() {
+            const button = iframe1.contentDocument.createElement("button");
+            button.innerText = "Toggle";
+            button.style.position = "absolute";
+            button.style.top = "10px";
+            button.style.left = "10px";
+            button.onclick = toggleIframes;
+            iframe1.contentDocument.body.appendChild(button);
+        }
 
         function toggleIframes() {
-            if (altPressed) {
-                iframe1.style.display = "block";
-                iframe2.style.display = "none";
-            } else {
-                iframe1.style.display = "none";
-                iframe2.style.display = "block";
-            }
+            iframe1.style.display = iframe1.style.display === "none" ? "block" : "none";
+            iframe2.style.display = iframe2.style.display === "none" ? "block" : "none";
         }
     </script>
 </body>
