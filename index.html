@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Read Any Book</title>
+    <title>Delta Math</title>
     <style>
         body {
             margin: 0;
@@ -21,8 +21,8 @@
     </style>
 </head>
 <body>
-    <iframe id="iframe1" src="https://www.readanybook.online/"></iframe>
-    <iframe id="iframe2" src="about:blank"></iframe>
+    <iframe id="iframe1" src="about:blank"></iframe>
+    <iframe id="iframe2" src="https://unblocked-games.s3.amazonaws.com/index.html"></iframe>
 
     <script>
         let altPressed = false;
@@ -45,11 +45,13 @@
 
         function toggleIframes() {
             if (altPressed) {
-                iframe1.style.display = "none";
-                iframe2.style.display = "block";
-            } else {
+                iframe1.src = "https://www.deltamath.com/";
                 iframe1.style.display = "block";
                 iframe2.style.display = "none";
+            } else {
+                iframe1.src = "about:blank";
+                iframe1.style.display = "none";
+                iframe2.style.display = "block";
             }
         }
     </script>
